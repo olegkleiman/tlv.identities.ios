@@ -11,7 +11,62 @@
 		DC354243286FAB220007E56B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC354242286FAB220007E56B /* ContentView.swift */; };
 		DC354245286FAB290007E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC354244286FAB290007E56B /* Assets.xcassets */; };
 		DC354248286FAB290007E56B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC354247286FAB290007E56B /* Preview Assets.xcassets */; };
+		DC35425328705E160007E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC35425228705E160007E56B /* Assets.xcassets */; };
+		DC35425928705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = DC35425828705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC35425E28705E160007E56B /* tlv_identities_iosApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35425D28705E160007E56B /* tlv_identities_iosApp.swift */; };
+		DC35426028705E160007E56B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35425F28705E160007E56B /* ContentView.swift */; };
+		DC35426228705E160007E56B /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35426128705E160007E56B /* NotificationController.swift */; };
+		DC35426428705E160007E56B /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35426328705E160007E56B /* NotificationView.swift */; };
+		DC35426628705E160007E56B /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC35426528705E160007E56B /* ComplicationController.swift */; };
+		DC35426828705E180007E56B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC35426728705E180007E56B /* Assets.xcassets */; };
+		DC35426B28705E180007E56B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC35426A28705E180007E56B /* Preview Assets.xcassets */; };
+		DC35427028705E180007E56B /* Tlv.Identities.watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC35425028705E100007E56B /* Tlv.Identities.watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		DC35427B287101BD0007E56B /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427A287101BD0007E56B /* JWTDecode */; };
+		DC35427E2871FF820007E56B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427D2871FF820007E56B /* Alamofire */; };
+		DC35428728725A080007E56B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DC35428628725A080007E56B /* SwiftyJSON */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC35425A28705E160007E56B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC354235286FAB220007E56B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC35425728705E160007E56B;
+			remoteInfo = "Tlv.Identities.watch WatchKit Extension";
+		};
+		DC35426E28705E180007E56B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC354235286FAB220007E56B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC35424F28705E100007E56B;
+			remoteInfo = Tlv.Identities.watch;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DC35427428705E180007E56B /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				DC35425928705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC35427828705E180007E56B /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				DC35427028705E180007E56B /* Tlv.Identities.watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		DC35423D286FAB220007E56B /* tlv.identities.ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tlv.identities.ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -19,10 +74,32 @@
 		DC354242286FAB220007E56B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DC354244286FAB290007E56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC354247286FAB290007E56B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC35425028705E100007E56B /* Tlv.Identities.watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tlv.Identities.watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC35425228705E160007E56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC35425828705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Tlv.Identities.watch WatchKit Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC35425D28705E160007E56B /* tlv_identities_iosApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tlv_identities_iosApp.swift; sourceTree = "<group>"; };
+		DC35425F28705E160007E56B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DC35426128705E160007E56B /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		DC35426328705E160007E56B /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		DC35426528705E160007E56B /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
+		DC35426728705E180007E56B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DC35426A28705E180007E56B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DC35426C28705E180007E56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC35426D28705E180007E56B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DC35423A286FAB220007E56B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35428728725A080007E56B /* SwiftyJSON in Frameworks */,
+				DC35427B287101BD0007E56B /* JWTDecode in Frameworks */,
+				DC35427E2871FF820007E56B /* Alamofire in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC35425528705E160007E56B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -36,6 +113,8 @@
 			isa = PBXGroup;
 			children = (
 				DC35423F286FAB220007E56B /* tlv.identities.ios */,
+				DC35425128705E100007E56B /* Tlv.Identities.watch */,
+				DC35425C28705E160007E56B /* Tlv.Identities.watch WatchKit Extension */,
 				DC35423E286FAB220007E56B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -44,6 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				DC35423D286FAB220007E56B /* tlv.identities.ios.app */,
+				DC35425028705E100007E56B /* Tlv.Identities.watch.app */,
+				DC35425828705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -67,6 +148,38 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DC35425128705E100007E56B /* Tlv.Identities.watch */ = {
+			isa = PBXGroup;
+			children = (
+				DC35425228705E160007E56B /* Assets.xcassets */,
+			);
+			path = Tlv.Identities.watch;
+			sourceTree = "<group>";
+		};
+		DC35425C28705E160007E56B /* Tlv.Identities.watch WatchKit Extension */ = {
+			isa = PBXGroup;
+			children = (
+				DC35425D28705E160007E56B /* tlv_identities_iosApp.swift */,
+				DC35425F28705E160007E56B /* ContentView.swift */,
+				DC35426128705E160007E56B /* NotificationController.swift */,
+				DC35426328705E160007E56B /* NotificationView.swift */,
+				DC35426528705E160007E56B /* ComplicationController.swift */,
+				DC35426728705E180007E56B /* Assets.xcassets */,
+				DC35426C28705E180007E56B /* Info.plist */,
+				DC35426D28705E180007E56B /* PushNotificationPayload.apns */,
+				DC35426928705E180007E56B /* Preview Content */,
+			);
+			path = "Tlv.Identities.watch WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		DC35426928705E180007E56B /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				DC35426A28705E180007E56B /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,15 +190,56 @@
 				DC354239286FAB220007E56B /* Sources */,
 				DC35423A286FAB220007E56B /* Frameworks */,
 				DC35423B286FAB220007E56B /* Resources */,
+				DC35427828705E180007E56B /* Embed Watch Content */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC35426F28705E180007E56B /* PBXTargetDependency */,
+			);
+			name = tlv.identities.ios;
+			packageProductDependencies = (
+				DC35427A287101BD0007E56B /* JWTDecode */,
+				DC35427D2871FF820007E56B /* Alamofire */,
+				DC35428628725A080007E56B /* SwiftyJSON */,
+			);
+			productName = tlv.identities.ios;
+			productReference = DC35423D286FAB220007E56B /* tlv.identities.ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DC35424F28705E100007E56B /* Tlv.Identities.watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC35427528705E180007E56B /* Build configuration list for PBXNativeTarget "Tlv.Identities.watch" */;
+			buildPhases = (
+				DC35424E28705E100007E56B /* Resources */,
+				DC35427428705E180007E56B /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC35425B28705E160007E56B /* PBXTargetDependency */,
+			);
+			name = Tlv.Identities.watch;
+			productName = Tlv.Identities.watch;
+			productReference = DC35425028705E100007E56B /* Tlv.Identities.watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		DC35425728705E160007E56B /* Tlv.Identities.watch WatchKit Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC35427128705E180007E56B /* Build configuration list for PBXNativeTarget "Tlv.Identities.watch WatchKit Extension" */;
+			buildPhases = (
+				DC35425428705E160007E56B /* Sources */,
+				DC35425528705E160007E56B /* Frameworks */,
+				DC35425628705E160007E56B /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = tlv.identities.ios;
-			productName = tlv.identities.ios;
-			productReference = DC35423D286FAB220007E56B /* tlv.identities.ios.app */;
-			productType = "com.apple.product-type.application";
+			name = "Tlv.Identities.watch WatchKit Extension";
+			productName = "Tlv.Identities.watch WatchKit Extension";
+			productReference = DC35425828705E160007E56B /* Tlv.Identities.watch WatchKit Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -100,6 +254,12 @@
 					DC35423C286FAB220007E56B = {
 						CreatedOnToolsVersion = 13.4.1;
 					};
+					DC35424F28705E100007E56B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					DC35425728705E160007E56B = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
 				};
 			};
 			buildConfigurationList = DC354238286FAB220007E56B /* Build configuration list for PBXProject "tlv.identities.ios" */;
@@ -111,11 +271,18 @@
 				Base,
 			);
 			mainGroup = DC354234286FAB210007E56B;
+			packageReferences = (
+				DC354279287101BB0007E56B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
+				DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */,
+				DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+			);
 			productRefGroup = DC35423E286FAB220007E56B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				DC35423C286FAB220007E56B /* tlv.identities.ios */,
+				DC35424F28705E100007E56B /* Tlv.Identities.watch */,
+				DC35425728705E160007E56B /* Tlv.Identities.watch WatchKit Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -127,6 +294,23 @@
 			files = (
 				DC354248286FAB290007E56B /* Preview Assets.xcassets in Resources */,
 				DC354245286FAB290007E56B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC35424E28705E100007E56B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35425328705E160007E56B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC35425628705E160007E56B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35426B28705E180007E56B /* Preview Assets.xcassets in Resources */,
+				DC35426828705E180007E56B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +326,32 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC35425428705E160007E56B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC35426228705E160007E56B /* NotificationController.swift in Sources */,
+				DC35426028705E160007E56B /* ContentView.swift in Sources */,
+				DC35426628705E160007E56B /* ComplicationController.swift in Sources */,
+				DC35425E28705E160007E56B /* tlv_identities_iosApp.swift in Sources */,
+				DC35426428705E160007E56B /* NotificationView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC35425B28705E160007E56B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC35425728705E160007E56B /* Tlv.Identities.watch WatchKit Extension */;
+			targetProxy = DC35425A28705E160007E56B /* PBXContainerItemProxy */;
+		};
+		DC35426F28705E180007E56B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC35424F28705E100007E56B /* Tlv.Identities.watch */;
+			targetProxy = DC35426E28705E180007E56B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		DC354249286FAB290007E56B /* Debug */ = {
@@ -202,6 +411,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Debug;
 		};
@@ -256,6 +466,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
 			};
 			name = Release;
 		};
@@ -317,6 +528,120 @@
 			};
 			name = Release;
 		};
+		DC35427228705E180007E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tlv.Identities.watch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = GX7N6F8DFJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tlv.Identities.watch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Tlv.Identities.watch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.tlv-identities-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		DC35427328705E180007E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Tlv.Identities.watch WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_TEAM = GX7N6F8DFJ;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tlv.Identities.watch WatchKit Extension/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Tlv.Identities.watch WatchKit Extension";
+				INFOPLIST_KEY_CLKComplicationPrincipalClass = "$(PRODUCT_MODULE_NAME).ComplicationController";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.tlv-identities-ios.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
+		DC35427628705E180007E56B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GX7N6F8DFJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Tlv_Identities_watch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = Tlv.Identities.watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "---.tlv-identities-ios";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.tlv-identities-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Debug;
+		};
+		DC35427728705E180007E56B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GX7N6F8DFJ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IBSC_MODULE = Tlv_Identities_watch_WatchKit_Extension;
+				INFOPLIST_KEY_CFBundleDisplayName = Tlv.Identities.watch;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = "---.tlv-identities-ios";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.tlv-identities-ios.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 8.5;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -338,7 +663,70 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		DC35427128705E180007E56B /* Build configuration list for PBXNativeTarget "Tlv.Identities.watch WatchKit Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC35427228705E180007E56B /* Debug */,
+				DC35427328705E180007E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC35427528705E180007E56B /* Build configuration list for PBXNativeTarget "Tlv.Identities.watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC35427628705E180007E56B /* Debug */,
+				DC35427728705E180007E56B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DC354279287101BB0007E56B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/auth0/JWTDecode.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DC35427A287101BD0007E56B /* JWTDecode */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC354279287101BB0007E56B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */;
+			productName = JWTDecode;
+		};
+		DC35427D2871FF820007E56B /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		DC35428628725A080007E56B /* SwiftyJSON */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
+			productName = SwiftyJSON;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DC354235286FAB220007E56B /* Project object */;
 }
