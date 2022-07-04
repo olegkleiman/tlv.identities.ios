@@ -23,7 +23,7 @@
 		DC35427028705E180007E56B /* Tlv.Identities.watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = DC35425028705E100007E56B /* Tlv.Identities.watch.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		DC35427B287101BD0007E56B /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427A287101BD0007E56B /* JWTDecode */; };
 		DC35427E2871FF820007E56B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427D2871FF820007E56B /* Alamofire */; };
-		DC35428728725A080007E56B /* SwiftyJSON in Frameworks */ = {isa = PBXBuildFile; productRef = DC35428628725A080007E56B /* SwiftyJSON */; };
+		DCACEC8B2873276400379975 /* OktaJWT in Frameworks */ = {isa = PBXBuildFile; productRef = DCACEC8A2873276400379975 /* OktaJWT */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -93,9 +93,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC35428728725A080007E56B /* SwiftyJSON in Frameworks */,
 				DC35427B287101BD0007E56B /* JWTDecode in Frameworks */,
 				DC35427E2871FF820007E56B /* Alamofire in Frameworks */,
+				DCACEC8B2873276400379975 /* OktaJWT in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +201,7 @@
 			packageProductDependencies = (
 				DC35427A287101BD0007E56B /* JWTDecode */,
 				DC35427D2871FF820007E56B /* Alamofire */,
-				DC35428628725A080007E56B /* SwiftyJSON */,
+				DCACEC8A2873276400379975 /* OktaJWT */,
 			);
 			productName = tlv.identities.ios;
 			productReference = DC35423D286FAB220007E56B /* tlv.identities.ios.app */;
@@ -274,7 +274,7 @@
 			packageReferences = (
 				DC354279287101BB0007E56B /* XCRemoteSwiftPackageReference "JWTDecode.swift" */,
 				DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */,
-				DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				DCACEC892873276400379975 /* XCRemoteSwiftPackageReference "okta-ios-jwt" */,
 			);
 			productRefGroup = DC35423E286FAB220007E56B /* Products */;
 			projectDirPath = "";
@@ -700,12 +700,12 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */ = {
+		DCACEC892873276400379975 /* XCRemoteSwiftPackageReference "okta-ios-jwt" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SwiftyJSON/SwiftyJSON.git";
+			repositoryURL = "https://github.com/okta/okta-ios-jwt.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 2.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -721,10 +721,10 @@
 			package = DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		DC35428628725A080007E56B /* SwiftyJSON */ = {
+		DCACEC8A2873276400379975 /* OktaJWT */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC35428528725A080007E56B /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
-			productName = SwiftyJSON;
+			package = DCACEC892873276400379975 /* XCRemoteSwiftPackageReference "okta-ios-jwt" */;
+			productName = OktaJWT;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

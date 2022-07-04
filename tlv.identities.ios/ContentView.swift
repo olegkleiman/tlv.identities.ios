@@ -8,8 +8,10 @@
 import SwiftUI
 import Foundation
 import Alamofire
-import SwiftyJSON
+//import SwiftyJSON
 import JWTDecode
+//import JOSESwift
+import OktaJWT
 
 struct BlueButton: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
@@ -32,6 +34,16 @@ struct SendOTPResponse: Codable {
 struct SendOTPRequest {
     let userId: String
     let phoneNumber: String
+}
+
+struct OTPValidationResponse: Codable {
+    let version: String// "1.0.1"
+    let status: Int // 409
+    let code: String // "OTP3001"
+    let userMessage: String
+    let developerMessage: String
+    let requestId: String
+    let moreInfo: String
 }
 
 struct DecodableMetadata: Decodable {
@@ -57,14 +69,27 @@ struct KeyMetadata: Decodable {
     let n: String
 }
 
+struct DecodableTokens: Decodable {
+    let access_token: String
+    let token_type: String
+    let expires_in: String
+    let refresh_token: String
+    let id_token: String
+}
+
 struct DecodableKeysResponse: Decodable {
     let keys: [KeyMetadata]
 }
 
+let ISSUER: String =
+"https://TlvfpB2CPPR.b2clogin.com/TlvfpB2CPPR.onmicrosoft.com/B2C_1A_B2C_1_ROPC_KIEV_RP/v2.0/"
+////"https://tlvfpb2cppr.b2clogin.com/TlvfpB2CPPR.onmicrosoft.com/v2.0/"
+//"https://tlvfpb2cppr.b2clogin.com/781ec24d-9aa5-4628-9fc1-5a1f13dc0424/v2.0/"
+
 struct TokenView: View {
     
     @Binding var stage: Int
-    @Binding var jsonTokens: [String: Any]
+    @Binding var jsonTokens: DecodableTokens?
     
     @State private var issuer: String = ""
     @State private var subject: String = ""
@@ -72,6 +97,9 @@ struct TokenView: View {
     @State private var email: String = ""
     @State private var scope: String = ""
     @State private var expiresAt: Date? = nil
+    
+    @State private var showVlidationResults = false
+    @State private var validationMessage = ""
     
     func stringFromDate(_ date: Date) -> String {
         let formatter = DateFormatter()
@@ -96,8 +124,8 @@ struct TokenView: View {
                 .padding(2)
                 .font(.body)
                 .onAppear {
-                    if let accessToken = jsonTokens["access_token"] {
-                        let jwt = try? decode(jwt: accessToken as! String)
+                    if let accessToken = jsonTokens?.access_token {
+                        let jwt = try? decode(jwt: accessToken)
                         self.issuer = jwt?.issuer ?? "unknown"
                         self.subject = jwt?.subject ?? "unknown"
                         self.expiresAt = jwt?.expiresAt ?? nil
@@ -117,46 +145,36 @@ struct TokenView: View {
             Button {
                 Task {
                     
-                    if let accessToken = jsonTokens["access_token"] as? String {
-                        let parts = accessToken.components(separatedBy: ".")
-                        
-                        let header = parts[0]
-                        
-                        let payload = parts[1]
-                    }
-                    
-                    var url = URL(string:"https://TlvfpB2CPPR.b2clogin.com/TlvfpB2CPPR.onmicrosoft.com/B2C_1A_B2C_1_ROPC_KIEV_RP/v2.0/.well-known/openid-configuration")!
-                    
-                    AF.request(url, method: .get)
-                        .responseDecodable(of: DecodableMetadata.self) { response in
-                            let keysUrl = response.value?.jwks_uri
+                    let options = [
+                      "issuer": ISSUER,
+                      "exp": true,
+                      "iat": true,
+                      "scp": "TLV.Digitel"
+                    ] as [String: Any]
+
+                    let validator = OktaJWTValidator(options)
+
+                    do {
+                        if let accessToken = jsonTokens?.access_token {
+
+                            _ = try validator.isValid(accessToken)
+                            validationMessage = "The token is valid"
                             
-                            url = URL(string: keysUrl!)!
-                            AF.request(url, method: .get)
-                                .responseDecodable(of: DecodableKeysResponse.self) { response in
-                                    let keys = response.value?.keys
-                                    let key: KeyMetadata = (keys?[0])!
-                                    let publicKey = key.n
-                                    print(publicKey)
-                                }
                         }
 
-//
-//                    if let accessToken = jsonTokens["access_token"] as? String {
-//                        let parts = accessToken.components(separatedBy: ".")
-//
-//                        let header = parts[0]
-//                        let payload = parts[1]
-////                        let signature = Data(base64URLEncoded: parts[2])!
-//
-//                        let signingInput = (header + "." + payload).data(using: .ascii)!
-////
-////                        SecKeyVerifySignature(publicKey, .rsaSignatureMessagePKCS1v15SHA256, signingInput as CFData, signature as! CFData, nil))
-//                    }
+                    } catch let error {
+                        validationMessage = "Error: \(error)"
+                    }
+
+                    showVlidationResults = true
+
                 }
             } label: {
                 Text("Validate")
                     .padding(2)
+            }
+            .alert(isPresented: $showVlidationResults) {
+                Alert(title: Text("Validation Results"), message: Text(validationMessage), dismissButton: .default(Text("OK")))
             }
             Button {
                 self.stage = 0
@@ -172,8 +190,8 @@ struct OTPView: View {
     
     @Binding var stage: Int
     @Binding var phoneNumber: String
-    @Binding var jsonTokens: [String: Any]
-    
+    @Binding var jsonTokens: DecodableTokens?
+
     @State private var otp: String = ""
     @State private var errorMessage: String = ""
     @State private var showError = false
@@ -192,52 +210,27 @@ struct OTPView: View {
             }
             Button {
                 Task {
+
+                    let url = URL(string: "https://tlvidentity.azurewebsites.net/api/OTPValidator")!
                     
-                    var components = URLComponents(string: "https://tlvidentity.azurewebsites.net/api/OTPValidator")!
-                    components.queryItems = [
-                        URLQueryItem(name: "phone_number", value: phoneNumber),
-                        URLQueryItem(name: "otp", value: otp),
-                        URLQueryItem(name: "client_id", value: clientId),
-                        URLQueryItem(name: "scope", value: "openid offline_access https://TlvfpB2CPPR.onmicrosoft.com/\(clientId)/TLV.Digitel")
+                    let parameters: [String: String] = [
+                        "phone_number": phoneNumber,
+                        "otp": otp,
+                        "client_id": clientId,
+                        "scope": "openid offline_access https://TlvfpB2CPPR.onmicrosoft.com/\(clientId)/TLV.Digitel"
                     ]
 
-                    var request = URLRequest(url: components.url!)
-                    request.httpMethod = "POST"
-                    
-                    let task = URLSession.shared.dataTask(with: request) {data,
-                        response, error in
-                        
-                        guard let data = data,
-                              let response = response as? HTTPURLResponse,
-                              200 ..< 300 ~= response.statusCode,
-                            error == nil
-                        else {
-                            print(error?.localizedDescription ?? "No data")
-                            return
-                        }
-                        
-                        let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                        if let responseJSON = responseJSON as? [String: Any] {
-                            print(responseJSON)
-                            
-                            if let status = responseJSON["status"] {
-                                if( status as! Int != 200 ) {
-                                    self.errorMessage = responseJSON["userMessage"] as! String
-                                    showError.toggle()
-                                } else {
-                                    self.stage = 2
-                                }
-                            } else { // tokens obtained
-                                
-                                self.jsonTokens = responseJSON
+                    AF.request(url, method: .post, parameters: parameters, encoder: URLEncodedFormParameterEncoder(destination: .queryString))
+                        .responseDecodable(of: DecodableTokens.self) { response in
+                            if response.response?.statusCode == 200 {
+                                self.jsonTokens = response.value!
                                 self.stage = 2
-                                
+                            } else {
+                                let error = response.result
+                                print(error)
                             }
-
-                        }
-
                     }
-                    task.resume()
+
                 }
             } label: {
                 Text("Login")
@@ -294,42 +287,27 @@ struct IdentityView: View {
                 Button {
                     print("Login invoked")
                     Task {
+                        
                         let url = URL(string:"https://tlvidentity.azurewebsites.net/api/generate_otp")!
-                        var request = URLRequest(url: url)
-                        request.httpMethod = "POST"
-                   
-                        let json: [String: Any] = ["userId": userId,
-                                                   "phoneNumber": phoneNumber]
-                        let jsonData = try? JSONSerialization.data(withJSONObject: json)
                         
-                        request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-                        request.setValue("\(String(describing: jsonData?.count))", forHTTPHeaderField: "Content-Length")
+                        let parameters: [String: String] = [
+                            "userId": userId,
+                            "phoneNumber": phoneNumber
+                        ]
                         
-                        request.httpBody = jsonData
-                        
-                        let task = URLSession.shared.dataTask(with: request) {data, response, error in
-                            
-                            guard let data = data, error == nil else {
-                                print(error?.localizedDescription ?? "No data")
-                                return
-                            }
-                            
-                            let responseJSON = try? JSONSerialization.jsonObject(with: data, options: [])
-                            if let responseJSON = responseJSON as? [String: Any] {
-                                print(responseJSON)
-                                if !(responseJSON["isError"] as! Bool) {
+                        AF.request(url, method: .post, parameters: parameters, encoder: JSONParameterEncoder.default)
+                            .responseDecodable(of: SendOTPResponse.self) { response in
+                                if !response.value!.isError as Bool {
                                     self.stage = 1
-                                } else {
-                                    self.errorMessage = (responseJSON["errorDesc"] as? String)!
+                                } else
+                                {
+                                    self.errorMessage = (response.value?.errorDesc as? String)!
                                     self.showError = true
                                 }
-                            }
-
                         }
-                        task.resume()
-                        
-                        
+
                     }
+
                 } label: {
                     Text("Continue")
                             .padding(2)
@@ -352,7 +330,7 @@ struct ContentView: View {
     
     @State private var stage: Int = 0
     @State private var phoneNumber: String = "0543307026"
-    @State private var jsonTokens: [String: Any] = [:]
+    @State private var jsonTokens: DecodableTokens?
     
     var body: some View {
         VStack {
