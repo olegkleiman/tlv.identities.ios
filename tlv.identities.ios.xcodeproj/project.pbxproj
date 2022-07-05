@@ -24,6 +24,10 @@
 		DC35427B287101BD0007E56B /* JWTDecode in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427A287101BD0007E56B /* JWTDecode */; };
 		DC35427E2871FF820007E56B /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DC35427D2871FF820007E56B /* Alamofire */; };
 		DCACEC8B2873276400379975 /* OktaJWT in Frameworks */ = {isa = PBXBuildFile; productRef = DCACEC8A2873276400379975 /* OktaJWT */; };
+		DCACEC8D2874307B00379975 /* OTPView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCACEC8C2874307A00379975 /* OTPView.swift */; };
+		DCACEC8F2874313E00379975 /* TokenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCACEC8E2874313E00379975 /* TokenView.swift */; };
+		DCACEC91287431F000379975 /* IdentityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCACEC90287431F000379975 /* IdentityView.swift */; };
+		DCACEC972874369D00379975 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = DCACEC962874369D00379975 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +90,9 @@
 		DC35426A28705E180007E56B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DC35426C28705E180007E56B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC35426D28705E180007E56B /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		DCACEC8C2874307A00379975 /* OTPView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPView.swift; sourceTree = "<group>"; };
+		DCACEC8E2874313E00379975 /* TokenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenView.swift; sourceTree = "<group>"; };
+		DCACEC90287431F000379975 /* IdentityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +101,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC35427B287101BD0007E56B /* JWTDecode in Frameworks */,
+				DCACEC972874369D00379975 /* Alamofire in Frameworks */,
 				DC35427E2871FF820007E56B /* Alamofire in Frameworks */,
 				DCACEC8B2873276400379975 /* OktaJWT in Frameworks */,
 			);
@@ -132,8 +140,8 @@
 		DC35423F286FAB220007E56B /* tlv.identities.ios */ = {
 			isa = PBXGroup;
 			children = (
+				DCACEC982874389300379975 /* Views */,
 				DC354240286FAB220007E56B /* tlv_identities_iosApp.swift */,
-				DC354242286FAB220007E56B /* ContentView.swift */,
 				DC354244286FAB290007E56B /* Assets.xcassets */,
 				DC354246286FAB290007E56B /* Preview Content */,
 			);
@@ -180,6 +188,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		DCACEC982874389300379975 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC354242286FAB220007E56B /* ContentView.swift */,
+				DCACEC90287431F000379975 /* IdentityView.swift */,
+				DCACEC8C2874307A00379975 /* OTPView.swift */,
+				DCACEC8E2874313E00379975 /* TokenView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -202,6 +221,7 @@
 				DC35427A287101BD0007E56B /* JWTDecode */,
 				DC35427D2871FF820007E56B /* Alamofire */,
 				DCACEC8A2873276400379975 /* OktaJWT */,
+				DCACEC962874369D00379975 /* Alamofire */,
 			);
 			productName = tlv.identities.ios;
 			productReference = DC35423D286FAB220007E56B /* tlv.identities.ios.app */;
@@ -322,7 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC354243286FAB220007E56B /* ContentView.swift in Sources */,
+				DCACEC91287431F000379975 /* IdentityView.swift in Sources */,
 				DC354241286FAB220007E56B /* tlv_identities_iosApp.swift in Sources */,
+				DCACEC8F2874313E00379975 /* TokenView.swift in Sources */,
+				DCACEC8D2874307B00379975 /* OTPView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +748,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = DCACEC892873276400379975 /* XCRemoteSwiftPackageReference "okta-ios-jwt" */;
 			productName = OktaJWT;
+		};
+		DCACEC962874369D00379975 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC35427C2871FF800007E56B /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
